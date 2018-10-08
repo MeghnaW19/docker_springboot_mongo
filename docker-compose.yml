@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mongo:
+   image: mongo:latest
+   ports:
+     - "27017:27017"
+   volumes:
+      - '/c/mongo:/data/db'
+   container_name: mongo-docker
+   network_mode: host
+
+  spring:
+    image: simanta/springboot-movie:1.0
+    restart: always
+    network_mode: host 
+    container_name: spring-docker   
+    depends_on:
+      - mongo
+    ports:
+      - 8080:8080
+  
+
+    
+      
+
+  
+
+  
+
+    
+     
